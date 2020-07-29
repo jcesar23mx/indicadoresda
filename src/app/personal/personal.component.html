@@ -1,0 +1,385 @@
+<!--<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    <app-menu></app-menu>
+</div>
+<div class="c-wrapper c-fixed-components">
+    <app-header></app-header>
+-->
+<div class="c-body">
+    <main class="c-main">
+        <div class="container-fluid">
+            <!-- Inicia cabeceras iniciales-->
+            <div class="fade-in">
+                <div clas="row">
+                    <table class="table table-striped table-sm">
+                        <tr>
+                            <td>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="nombreempleado" class="sr-only">Empleado</label>
+                                    <input type="search" class="form-control" id="nombreempleado"
+                                        placeholder="Número de empleado, Empleado,Plantel">
+                                </div>
+                            </td>
+                            <td>
+                                <button (click)="fetchEmpleadoBusqueda()" class="btn btn-primary mb-2">Enviar
+                                    formulario</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">
+                                    <svg class="c-icon">
+                                        <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-people"></use>
+                                    </svg>
+                                </th>
+                                <th scope="col"></th>
+                                <th scope="col">Empleado</th>
+                                <th scope="col">Plantel</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Detalles</th>
+                                <!--<th scope="col">Horario</th>
+                                <th scope="col">Verificar</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of empleados; let indice = index;">
+                                <th scope="row">{{ indice+1 }} </th>
+                                <td>
+                                    <div class="c-avatar">
+                                        <img class="c-avatar-img" src="assets/fotos/{{item.numemp}}.jpg"
+                                            onError="this.src='assets/fotos/user.png'">
+                                        <span class="c-avatar-status bg-success"></span>
+                                    </div>
+                                </td>
+                                <td> </td>
+
+                                <td>
+                                    <div> {{ item.numemp }} - {{ item.nombreempleado }}</div>
+                                    <div class="small text-muted"> Fecha de ingreso | {{ item.fchingcobaev }} </div>
+                                    <div class="small text-muted"> Sindicato | {{ item.siglassindicato }} </div>
+                                    <div *ngIf="item.interinopuro!=0" class="badge bg-warning">Interino sin base</div>
+                                </td>
+                                <td>
+                                    <div> <strong> {{ item.claveplantel  + ' - ' + item.descplantel }} </strong></div>
+                                    <div class="small text-muted">Centro de trabajo | {{ item.nombrect }} </div>
+                                </td>
+                                <td><strong>{{ item.clavecategoria + ' - ' +  item.desccategoria }}</strong> <br>
+                                    <div><span *ngIf="item.funcionsec!='Ninguna'">{{ item.funcionsec }}</span></div>
+                                    <div class="small text-muted">Función secundaria {{ item.funcionsec }} </div>
+                                    <div class="small text-muted">Quin Inicio | {{ item.qnainicio}} Quin Fin | {{item.qnafin }}</div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a (click)="fetchEmpleado(item.numemp)">
+                                        <svg class="c-icon c-icon-xl">
+                                            <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-contact">
+                                            </use>
+                                        </svg>
+                                    </a>
+                                    <br>|<br>
+                                    <a (click)="fetchEstudioEmpleado(item.numemp)">
+                                        <svg class="c-icon c-icon-xl">
+                                            <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-description">
+                                            </use>
+                                        </svg>
+                                    </a>
+                                    <br>|<br>
+                                    <a (click)="fetchHorariosEmpleado(item.numemp, item.nombreempleado)" *ngIf="item.empfuncion=='DOCENTE'">
+                                        <svg class="c-icon c-icon-xl">
+                                            <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-voice-over-record">
+                                            </use>
+                                        </svg>
+                                    </a>
+                                    </div>
+                                </td>
+                                <!--
+                                        <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a class="btn-block btn-ghost-primary" (click)="fetchEmpleado(item.numemp)">
+                                                <svg class="c-icon">
+                                                <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-contact"></use>
+                                                </svg></a>
+                                                <a class=class="btn-block btn-ghost-warning" (click)="fetchEstudioEmpleado(item.numemp)">
+                                                    <svg class="c-icon">
+                                                    <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-description"></use>
+                                                    </svg></a>
+                                                
+                                        </div>
+                                            
+                                        <button class="btn btn-primary" (click)="fetchEmpleado(item.numemp)">Ver
+                                            detalle &nbsp;&nbsp;</button><br>
+                                        <button class="btn btn-primary"
+                                            (click)="fetchEstudioEmpleado(item.numemp, item.nombreempleado)">Ver
+                                            Estudios</button>
+                                        
+                                    </td>
+                                <td>
+                                    <div *ngIf="item.empfuncion=='DOCENTE'">
+                                        <button class="btn btn-primary"
+                                            (click)="fetchHorariosEmpleado(item.numemp, item.nombreempleado)">Ver
+                                            carga horaria</button>
+                                    </div>
+                                </td>-->
+                                <!--<td>
+                                        <div *ngIf="item.verificado==0">
+                                            <button class="btn btn-primary"
+                                                (click)="updateEmpleado(item)">Verificado</button>
+                                        </div>
+                                    </td>
+                                    <td><span>{{ item.verificado }} <br> {{ item.observaciones }} </span> </td>-->
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal fade" id="vCard" tabindex="-1" role="dialog" aria-labelledby="Tarjeta de horario" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content" *ngFor="let item of empleado">
+            <div class="modal-header">
+                <h5 class="modal-title" id="vCardTitle">{{ item.numemp + ' - ' + item.nombreempleado }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive-sm">
+                    <table class="table table-striped table-sm" width="100%">
+                        <tr>
+                            <td colspan="2" style="text-align: center; vertical-align: middle;">
+                                <img class="c-avatar-img" src="assets/fotos/{{item.numemp}}.jpg"
+                                    onError="this.src='assets/fotos/user.png'"
+                                    style="vertical-align: middle; width: 150px; border-radius: 50%;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span>Categor&iacute;a:</span></td>
+                            <td><span>{{ item.clavecategoria + ' - ' + item.desccategoria }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Fecha de ingreso:</span></td>
+                            <td><span>{{ item.fchingcobaev }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Antiguedad:</span></td>
+                            <td><span>{{ item.antiguedad }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Adscripci&oacute;n :</span></td>
+                            <td><span>{{ item.descplantel }}</span><br>
+                                <span>{{ item.nombrect }} </span>
+                            </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td colspan="2" align="center"><span>
+                                    <h4>Datos de plaza</h4>
+                                </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Esquema de pago:</span></td>
+                            <td><span>{{ item.esquemapago }} </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Quincena inicio:</span></td>
+                            <td><span>{{ item.qnainicio }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Quincena fin:</span></td>
+                            <td><span>{{ item.qnafin }} </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Motivo de baja:</span></td>
+                            <td><span>{{ item.desmotgralbaja }} </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Tipo contrato:</span></td>
+                            <td><span>{{ item.tipoempleado }} </span></td>
+                        </tr>
+
+                        <tr class="table-success">
+                            <td colspan="2" align="center"><span>
+                                    <h4>Ingresos Netos</h4>
+                                </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Percepciones:</span></td>
+                            <td><span>{{ item.permensualneto }} </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Deducciones:</span></td>
+                            <td><span>{{ item.dedmensualneto }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Mensual bruto:</span></td>
+                            <td><span>{{ item.totmensualneto }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Compensacion:</span></td>
+                            <td><span>{{ item.compensacion }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span><b>Mensual Neto+Comp</b>:</span></td>
+
+                            <td><span>{{ totmensual | currency }}</span></td>
+                        </tr>
+                        <tr class="table-success">
+                            <td colspan="2" align="center"><span>
+                                    <h4>Ingresos Brutos Quincenales</h4>
+                                </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Percepciones:</span></td>
+                            <td><span>{{ item.percquinbruto }} </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Deducciones:</span></td>
+                            <td><span>{{ item.deduquinbruto }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Mensual neto:</span></td>
+                            <td><span>{{ item.totquinbruto }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Compensacion:</span></td>
+                            <td><span>{{ item.compensacion }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span><b>Sueldo mensual bruto+Comp</b>:</span></td>
+                            <td><span>{{ totmensualBruto | currency }}</span></td>
+                        </tr>
+                        <tr class="table-success">
+                            <td colspan="2" align="center"><span>
+                                    <h4>Otros detalles</h4>
+                                </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Sindicato:</span></td>
+                            <td><span>{{ item.siglassindicato }} </span></td>
+                        </tr>
+
+                        <tr>
+                            <td><span>Función general:</span></td>
+                            <td><span>{{ item.empfuncion }} </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Función primaria:</span></td>
+                            <td><span>{{ item.funcionpri }} </span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Función secundaria:</span></td>
+                            <td><span>{{ item.funcionsec }} </span></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="vCardSchedule" tabindex="-1" role="dialog" aria-labelledby="Tarjeta de horario"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="vCardTitle">Horario 2019B - {{ numemp + ' - '  + nombre  }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-sm" width=100%>
+                    <thead>
+                        <tr>
+                            <th scope="col">IdHora</th>
+                            <th scope="col">Plantel</th>
+                            <th scope="col">Materia</th>
+                            <th scope="col">Grupo</th>
+                            <th scope="col">Tipo hora</th>
+                            <th scope="col">Nombramiento</th>
+                            <th scope="col">Titular</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Verificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of horario">
+                            <td>{{ item.idhora }}</td>
+                            <td>{{ item.claveplantel  + ' - ' + item.descplantel }}</td>
+                            <td>{{ item.nombremateria }} </td>
+                            <td>{{ item.grupo }}</td>
+                            <td>{{ item.tipohora  + ' - ' + item.desccategoria }}</td>
+                            <td>{{ item.descnombramiento }} </td>
+                            <td>{{ item.titular }}</td>
+                            <td>{{ item.cantidad }}</td>
+                            <td>
+                                <div>
+                                    <button class="btn btn-primary"
+                                        (click)="removeHorario(item.idhora)">Verificado</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tr class="table-info">
+                        <td colspan="8">Total de horas</td>
+                        <td>{{ totalhoras }}</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="vCardStudies" tabindex="-1" role="dialog" aria-labelledby="Tarjeta de estudios"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="vCardTitle">{{ numemp + ' - '  + nombre  }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-sm" width=100%>
+                    <thead>
+                        <tr>
+                            <th scope="col">Carrera</th>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">Titulado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of estudio">
+                            <td>{{ item.desccarrera }}</td>
+                            <td>{{ item.descnivel }} </td>
+                            <td>{{ item.titulado }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+    <app-footer></app-footer>
+</div>-->

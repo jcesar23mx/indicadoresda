@@ -1,0 +1,122 @@
+<div class="c-body">
+    <main class="c-main">
+        <div class="container-fluid">
+            <!-- Inicia cabeceras iniciales-->
+            <div class="fade-in">
+                <div class="row">
+                    <!--.col-->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-gradient-primary">
+                            <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="text-value-lg">{{ this.indicadores[0].p_importe }}</div>
+                                    <div>Presupuesto de egresos autorizado</div>
+                                </div>
+                            </div>
+                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                                <canvas class="chart" id="card-chart1" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                    <!--.col-->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-gradient-info">
+                            <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="text-value-lg">{{ this.indicadores[1].p_importe }}</div>
+                                    <div>Presupuesto de ingresos ministrado</div>
+                                </div>
+
+                            </div>
+                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                                <canvas class="chart" id="card-chart2" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                    <!--.col-->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-gradient-warning">
+                            <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="text-value-lg">{{ this.indicadores[2].p_importe }} </div>
+                                    <div>Presupuesto de egresos proyectado</div>
+                                </div>
+
+                            </div>
+                            <div class="c-chart-wrapper mt-3" style="height:70px;">
+                                <canvas class="chart" id="card-chart3" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                    <!--.col-->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-gradient-danger">
+                            <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="text-value-lg">{{ this.indicadores[3].p_importe }}</div>
+                                    <div>Presupuesto de egresos ejercido</div>
+                                </div>
+                            </div>
+                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                                <canvas class="chart" id="card-chart4" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                </div>
+                <!-- Termina cabeceras iniciales-->
+                <!-- Inicia primer avance presupuestal-->
+                <div class="card-columns cols-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Presupuesto ingresos mensual</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="c-chart-wrapper">
+                                <canvas id="canvas-1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Presupuesto egresos mensual</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="c-chart-wrapper">
+                                <canvas id="canvas-2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Termina primer avance presupuestal-->
+                <!-- Inicia segundo avance presupuestal-->
+                <div class="card-columns cols-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Presupuesto ingresos mensual</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="c-chart-wrapper">
+                                <canvas id="canvas-3"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Presupuesto egresos mensual</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="c-chart-wrapper">
+                                <canvas id="canvas-4"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Termina segundo avance presupuestal-->
+            </div>
+        </div>
+    </main>
+</div>

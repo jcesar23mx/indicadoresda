@@ -1,0 +1,69 @@
+<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    <div class="c-sidebar-brand d-lg-down-none">
+      <svg class="c-sidebar-brand-full" width="118" height="46" alt="MeLlenadeOrgullo">
+        <use xlink:href="assets/brand/cobaev.svg#full"></use>
+      </svg>
+      <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="MeLlenadeOrgullo">
+        <use xlink:href="assets/brand/cobaev.svg#full"></use>
+      </svg>
+    </div>
+    <ul class="c-sidebar-nav">
+      <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="home">
+          <svg class="c-sidebar-nav-icon">
+            <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-speedometer"></use>
+          </svg> Escritorio</a></li>
+      <li class="c-sidebar-nav-title">Indicadores</li>
+      <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="home">
+          <svg class="c-sidebar-nav-icon">
+            <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-drop1"></use>
+          </svg> Contabilidad</a></li>
+      <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="home">
+          <svg class="c-sidebar-nav-icon">
+            <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-pencil"></use>
+          </svg> Financieros</a></li>
+      
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="personal">
+          <svg class="c-sidebar-nav-icon">
+            <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-puzzle"></use>
+          </svg> Recursos humanos</a>        
+      </li>
+      
+    </ul>
+    <!--<button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>-->
+  </div>
+  <!-- Termina menú-->
+  <div class="c-wrapper c-fixed-components">
+    <!--Inicia Cabeceras--> 
+    <header class="c-header c-header-light c-header-fixed c-header-with-subheader">
+      <a class="c-header-brand d-lg-none" href="#">
+        <svg width="118" height="46" alt="#MeLlenadeOrgullo">
+          <use xlink:href="assets/brand/cobaev.svg#full"></use>
+        </svg></a>
+      <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar"
+        data-class="c-sidebar-lg-show" responsive="true">
+        <svg class="c-icon c-icon-lg">
+          <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-menu"></use>
+          </svg>
+      </button>
+      <ul class="c-header-nav ml-auto mr-4">
+        <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button"
+            aria-haspopup="true" aria-expanded="false">
+            <div class="c-avatar"><img class="c-avatar-img" src="assets/fotos/{{user[0].u_numemp}}.jpg " alt="{{user.u_name}}"></div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right pt-0">
+            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
+              <svg class="c-icon mr-2">
+                <use xlink:href="assets/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
+              </svg> Salir</a>
+          </div>
+        </li>
+      </ul>
+    </header>
+    <!--Termina Cabeceras-->
+    <router-outlet></router-outlet>
+    
+    <footer class="c-footer">
+      <div><a href="https://coreui.io">COBAEV</a> &copy; 2020 Direcci&oacute;n Administrativa.</div>
+      <div class="ml-auto">Desarrollado para&nbsp;<a href="https://coreui.io/">Direcci&oacute;n administrativa</a></div>
+    </footer>
+  </div>
